@@ -4,6 +4,7 @@
     "keywords":     ["banner"],
     "type":         "symfony-bundle",
     "license":      "MIT",
+    "minimum-stability": "dev",
     "authors":      [
         {
             "name":     "Eugene Bravov",
@@ -15,8 +16,8 @@
         "liip/imagine-bundle":      "~0.9"
     },
     "autoload":     {
-        "psr-0": { "Fullpipe\\Bundle\\BannerBundle": "" }
+        "psr-0": { "Fullpipe\\BannerBundle": "" }
     },
-    "target-dir": "Fullpipe/Bundle/BannerBundle",
+    "target-dir": "Fullpipe/BannerBundle",
     "minimum-stability": "dev"
 }
