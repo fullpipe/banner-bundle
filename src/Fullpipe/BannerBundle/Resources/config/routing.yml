@@ -1,3 +1,0 @@
-fullpipe_banner_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: FullpipeBannerBundle:Default:index }
