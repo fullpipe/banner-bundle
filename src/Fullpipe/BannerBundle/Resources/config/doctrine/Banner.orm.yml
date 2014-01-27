@@ -1,0 +1,32 @@
+Fullpipe\BannerBundle\Entity\Banner:
+    type: entity
+    table: null
+    repositoryClass: Fullpipe\BannerBundle\Entity\BannerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        place:
+            type: string
+            length: 255
+        url:
+            type: text
+        path:
+            type: string
+            length: 255
+        html:
+            type: text
+            nullable: true
+        startsAt:
+            type: datetime
+            nullable: true
+        endsAt:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,43 @@
+parameters:
+    fullpipe_banner.listener.image_upload.class: Fullpipe\BannerBundle\EventListener\ImageUploadListener
+    fullpipe_banner.image_uploader.class: Fullpipe\BannerBundle\Uploader\ImageUploader
+    fullpipe_banner.form.type.banner.class: Fullpipe\BannerBundle\Form\Type\BannerType
+    fullpipe_banner.twig.banner.class: Fullpipe\BannerBundle\Twig\BannerExtension
+    fullpipe_banner.repository.banner.class: Fullpipe\BannerBundle\Entity\BannerRepository
+    fullpipe_banner.data_root: %liip_imagine.data_root%
+
+services:
+    fullpipe_banner.image_uploader:
+        class: %fullpipe_banner.image_uploader.class%
+        public: false
+        arguments:
+            - @filesystem
+            - %fullpipe_banner.data_root%
+
+    fullpipe_banner.listener.image_upload:
+        class: %fullpipe_banner.listener.image_upload.class%
+        public: false
+        arguments:
+            - @fullpipe_banner.image_uploader
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    fullpipe_banner.repository.banner:
+        class: %fullpipe_banner.repository.banner.class%
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - "FullpipeBannerBundle:Banner"
+
+    fullpipe_banner.form.type.banner:
+        class: %fullpipe_banner.form.type.banner.class%
+        tags:
+            - { name: form.type, alias: fullpipe_banner_banner }
+
+    fullpipe_banner.twig.banner:
+        class: %fullpipe_banner.twig.banner.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+

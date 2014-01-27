@@ -1,0 +1,23 @@
+{% extends 'SyliusWebBundle:Backend:layout.html.twig' %}
+
+{% from 'SyliusResourceBundle:Macros:actions.html.twig' import update %}
+
+{% block topbar %}
+<ol class="breadcrumb">
+    <li><a href="{{ path('fullpipe_sylius_backend_banner_index') }}">{{ 'sylius.breadcrumb.banner.index'|trans }}</a></li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="glyphicon glyphicon-pencil"></i> {{ 'sylius.banner.update_header'|trans|raw }}</h1>
+</div>
+
+{{ form_errors(form) }}
+
+<form action="{{ path('fullpipe_sylius_backend_banner_update', {'id': banner.id}) }}" method="post" {{ form_enctype(form) }} class="form-horizontal" novalidate>
+    <input type="hidden" name="_method" value="PUT">
+    {% include 'FullpipeBannerBundle:Sylius/Backend/Banner:_form.html.twig' %}
+    {{ update() }}
+</form>
+{% endblock %}

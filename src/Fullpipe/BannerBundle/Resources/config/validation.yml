@@ -1,0 +1,17 @@
+Fullpipe\BannerBundle\Entity\Banner:
+    properties:
+        name:
+            - NotBlank:
+                message: fullpipe.banner.name.not_blank
+        place:
+            - NotBlank:
+                message: fullpipe.banner.name.not_blank
+        url:
+            - NotBlank:
+                message: fullpipe.banner.url.not_blank
+            - Url:
+                message: fullpipe.banner.url.not_blank
+        file:
+            - File:
+                maxSize: 2M
+                mimeTypes: ["image/jpeg", "image/png"]

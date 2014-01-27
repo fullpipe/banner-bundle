@@ -1,0 +1,9 @@
+<ul class="fullpipe-banner-list {% if attr.class is defined %}{{ attr.class }}{% endif %}">
+    {% for banner in banners %}
+        <li>
+            <a href="{{ banner.url }}">
+                <img src="{{ banner.path|imagine_filter(place) }}" alt="{{ banner.name }}" />
+            </a>
+        </li>
+    {% endfor %}
+</ul>
