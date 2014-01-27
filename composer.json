@@ -1,0 +1,22 @@
+{
+    "name":         "fullpipe/banner-bundle",
+    "description":  "This bundle provides an simple banner rotation",
+    "keywords":     ["banner"],
+    "type":         "symfony-bundle",
+    "license":      "MIT",
+    "authors":      [
+        {
+            "name":     "Eugene Bravov",
+            "email":    "eugene.bravov@gmail.org"
+        }
+    ],
+    "require":      {
+        "symfony/framework-bundle": "~2.0",
+        "liip/imagine-bundle":      "~0.9"
+    },
+    "autoload":     {
+        "psr-0": { "Fullpipe\\Bundle\\BannerBundle": "" }
+    },
+    "target-dir": "Fullpipe/Bundle/BannerBundle",
+    "minimum-stability": "dev"
+}
