@@ -6,9 +6,6 @@ Fullpipe\BannerBundle\Entity\Banner:
         name:
             type: string
             length: 255
-        place:
-            type: string
-            length: 255
         url:
             type: text
         html:
@@ -17,7 +14,16 @@ Fullpipe\BannerBundle\Entity\Banner:
         startsAt:
             type: datetime
             nullable: true
+            column: starts_at
         endsAt:
             type: datetime
             nullable: true
+            column: ends_at
+    manyToOne:
+        place:
+            targetEntity: Fullpipe\BannerBundle\Entity\Place
+            inversedBy: banners
+            joinColumn:
+                name: place_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }
