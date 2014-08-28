@@ -17,26 +17,38 @@ class BannerType extends ImageType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('place')
-            ->add('url')
-            ->add('html')
+            ->add('name', null, array(
+                'label' => 'fullpipe_banner.form.banner.name'
+            ))
+            ->add('place', 'entity', array(
+                'class' => 'Fullpipe\BannerBundle\Entity\Place',
+                'required' => true,
+                'property' => 'name',
+                'label' => 'fullpipe_banner.form.banner.place'
+            ))
+            ->add('url', null, array(
+                'label' => 'fullpipe_banner.form.banner.url'
+            ))
+            ->add('html', null, array(
+                'label' => 'fullpipe_banner.form.banner.html'
+            ))
             ->add('startsAt', 'date', array(
                 'label' => 'sylius.form.promotion.starts_at',
-                'empty_value' => /** @Ignore */ array('year' => '-', 'month' => '-', 'day' => '-')
+                'empty_value' => /** @Ignore */ array('year' => '-', 'month' => '-', 'day' => '-'),
+                'label' => 'fullpipe_banner.form.banner.startsAt'
             ))
             ->add('endsAt', 'date', array(
                 'label' => 'sylius.form.promotion.ends_at',
-                'empty_value' => /** @Ignore */ array('year' => '-', 'month' => '-', 'day' => '-')
-            ))
-            ->add('file', 'file', array(
-                'label'        => 'fullpipe.form.banner.file'
+                'empty_value' => /** @Ignore */ array('year' => '-', 'month' => '-', 'day' => '-'),
+                'label' => 'fullpipe_banner.form.banner.endsAt'
             ))
         ;
+
+        parent::buildForm($builder, $options);
     }
 
     public function getName()
     {
-        return 'fullpipe_banner_banner';
+        return 'fullpipe_bannerbundle_banner';
     }
 }
