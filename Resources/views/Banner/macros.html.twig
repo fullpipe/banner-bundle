@@ -1,0 +1,44 @@
+{% macro list(banners) %}
+
+{% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
+
+{% if banners|length > 0 %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>{{ sylius_resource_sort('name') }}</th>
+            <th>{{ sylius_resource_sort('place') }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for banner in banners %}
+        <tr>
+            <td>
+                <img src="{{ banner.hasPath ? banner|web_path : 'http://placehold.it/100x100' }}" alt="" width="100px" class="imgmedia-object" />
+            </td>
+            <td>
+                {{ banner.name }}
+            </td>
+            <td>
+                {{ banner.place.name }}
+            </td>
+            <td>
+                <div class="pull-right">
+                    {{ buttons.edit(path('fullpipe_sylius_backend_banner_update', {'id': banner.id}), 'fullpipe_banner.banner.update_banner'|trans) }}
+                    {{ buttons.delete(path('fullpipe_sylius_backend_banner_delete', {'id': banner.id}), 'fullpipe_banner.banner.delete_banner'|trans) }}
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    {{ 'fullpipe_banner.banner.no_banners'|trans }}
+</div>
+{% endif %}
+
+{% endmacro %}

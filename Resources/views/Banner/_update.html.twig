@@ -1,0 +1,9 @@
+{% import 'SyliusResourceBundle:Macros:actions.html.twig' as actions %}
+
+<h1>{{ 'fullpipe_banner.banner.header_update'|trans }} <small>{{ banner.name }}</small></h1>
+<hr />
+
+<form action="{{ path('fullpipe_sylius_backend_banner_update', {'id': banner.id}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
+    {% include 'FullpipeBannerBundle:Banner:_form.html.twig' %}
+    {{ actions.update(path('fullpipe_sylius_backend_banner_index')) }}
+</form>

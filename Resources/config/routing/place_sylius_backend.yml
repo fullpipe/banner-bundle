@@ -1,0 +1,31 @@
+fullpipe_sylius_backend_place_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: fullpipe.controller.place:indexAction
+
+fullpipe_sylius_backend_place_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: fullpipe.controller.place:createAction
+        _sylius:
+            redirect: fullpipe_sylius_backend_place_index
+            form: fullpipe_bannerbundle_place
+
+fullpipe_sylius_backend_place_update:
+    pattern: /{id}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: fullpipe.controller.place:updateAction
+        _sylius:
+            redirect: fullpipe_sylius_backend_place_index
+            form: fullpipe_bannerbundle_place
+
+fullpipe_sylius_backend_place_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: fullpipe.controller.place:deleteAction
+        _sylius:
+            redirect: fullpipe_sylius_backend_place_index

@@ -1,0 +1,19 @@
+{% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
+{% import 'FullpipeBannerBundle:Banner:macros.html.twig' as macros %}
+
+<h1>{{ 'fullpipe_banner.banner.header_index'|trans|raw }}</h1>
+<hr />
+
+<div class="well">
+    {{ buttons.create(path('fullpipe_sylius_backend_banner_create'), 'fullpipe_banner.banner.create_banner'|trans) }}
+</div>
+
+{% if banners.haveToPaginate()|default(false) %}
+    {{ pagerfanta(banners, 'twitter_bootstrap_translated') }}
+{% endif %}
+
+{{ macros.list(banners) }}
+
+{% if banners.haveToPaginate()|default(false) %}
+    {{ pagerfanta(banners, 'twitter_bootstrap_translated') }}
+{% endif %}

@@ -1,0 +1,7 @@
+fullpipe_sylius_backend_banner:
+    resource: "@FullpipeBannerBundle/Resources/config/routing/banner_sylius_backend.yml"
+    prefix: /banner
+
+fullpipe_sylius_backend_place:
+    resource: "@FullpipeBannerBundle/Resources/config/routing/place_sylius_backend.yml"
+    prefix: /place

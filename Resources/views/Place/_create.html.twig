@@ -1,0 +1,9 @@
+{% import 'SyliusResourceBundle:Macros:actions.html.twig' as actions %}
+
+<h1>{{ 'fullpipe_banner.place.header_create'|trans|raw }}</h1>
+<hr />
+
+<form action="{{ path('fullpipe_sylius_backend_place_create') }}" method="post" class="form-horizontal">
+    {% include 'FullpipeBannerBundle:Place:_form.html.twig' %}
+    {{ actions.create(path('fullpipe_sylius_backend_place_index')) }}
+</form>

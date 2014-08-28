@@ -1,0 +1,40 @@
+{% macro list(places) %}
+
+{% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
+
+{% if places|length > 0 %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>{{ sylius_resource_sort('place_name') }}</th>
+            <th>{{ sylius_resource_sort('name') }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for place in places %}
+        <tr>
+            <td>
+                {{ place.placeName }}
+            </td>
+            <td>
+                {{ place.name }}
+            </td>
+            <td>
+                <div class="pull-right">
+                    {{ buttons.edit(path('fullpipe_sylius_backend_place_update', {'id': place.id}), 'fullpipe_banner.place.update_place'|trans) }}
+                    {{ buttons.delete(path('fullpipe_sylius_backend_place_delete', {'id': place.id}), 'fullpipe_banner.place.delete_place'|trans) }}
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info">
+    <h4 class="alert-heading">Information</h4>
+    {{ 'fullpipe_banner.place.no_places'|trans }}
+</div>
+{% endif %}
+
+{% endmacro %}
