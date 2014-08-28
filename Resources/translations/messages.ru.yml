@@ -1,0 +1,29 @@
+fullpipe_banner:
+    form:
+        banner:
+            name: Название
+            place: Место показа
+            url: Ссылка
+            html: HTML контент
+            startsAt: Дата начала показа
+            endsAt: Дата окончания показа
+        place:
+            name: Название
+            place_name: Название в шаблонах
+            html: HTML контент
+    banner:
+        header_index: Список баннеров
+        header_update: Редактирование баннера
+        header_create: Добавление баннера
+        no_banners: Нет баннеров
+        update_banner: Редактировать
+        delete_banner: Удалить
+        create_banner: Добавить баннер
+    place:
+        header_index: Места для баннеров <small>обычно заводятся администратором сайта</small>
+        header_update: Редактирование места для баннера
+        header_create: Добавление места для баннера
+        no_places: Нет мест для баннеров
+        update_place: Редактировать
+        delete_place: Удалить
+        create_place: Добавить место для баннеров
