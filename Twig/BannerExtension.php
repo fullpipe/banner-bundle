@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Sylius package.
- *
- * (c) Paweł Jędrzejewski
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Fullpipe\BannerBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -33,36 +24,39 @@ class BannerExtension extends \Twig_Extension
         );
     }
 
+    public function getBannersInPlace($placeName, $limit = null)
+    {
+        return $this->getRepository()->findActiveInPlace($placeName, $limit);
+    }
+
 
     /**
-     * {@inheritdoc}
+     * Render Banners in list
+     * @param  string $placeName
+     * @param  integer $limit
+     * @param  array  $attr
      */
-    public function getFilters()
-    {
-        return array(
-            // new \Twig_SimpleFilter('banner_list', array($this, 'renderList'), array('is_safe' => array('html'))),
-        );
-    }
-
-    public function getBannersInPlace($place)
-    {
-        return $this->getRepository()->findActiveInPlace($place);
-    }
-
-    public function renderList($place, array $attr)
+    public function renderList($placeName, $limit = null, array $attr = array())
     {
         return $this->getTemplating()->render('FullpipeBannerBundle:Twig:list.html.twig', array(
-            'banners' => $this->getBannersInPlace($place),
-            'place'   => $place,
+            'banners' => $this->getBannersInPlace($placeName, $limit),
+            'place'   => $placeName,
             'attr'    => $attr
         ));
     }
 
+    /**
+     * Get Banner repository
+     * @return Fullpipe\BannerBundle\Entity\BannerRepository [description]
+     */
     public function getRepository()
     {
         return $this->container->get('fullpipe_banner.repository.banner');
     }
 
+    /**
+     * Get templating
+     */
     public function getTemplating()
     {
         return $this->container->get('templating');
@@ -75,6 +69,4 @@ class BannerExtension extends \Twig_Extension
     {
         return 'fullpipe_banner_extention';
     }
-
-
 }
