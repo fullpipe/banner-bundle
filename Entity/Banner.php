@@ -17,11 +17,6 @@ class Banner extends Image
     /**
      * @var string
      */
-    private $place;
-
-    /**
-     * @var string
-     */
     private $url;
 
     /**
@@ -38,6 +33,11 @@ class Banner extends Image
      * @var \DateTime
      */
     private $endsAt;
+
+    /**
+     * @var \Fullpipe\BannerBundle\Entity\Place
+     */
+    private $place;
 
     /**
      * Get id
@@ -79,28 +79,6 @@ class Banner extends Image
     public function getName()
     {
         return $this->name;
-    }
-    /**
-     * Set place
-     *
-     * @param string $place
-     * @return Banner
-     */
-    public function setPlace($place)
-    {
-        $this->place = $place;
-
-        return $this;
-    }
-
-    /**
-     * Get place
-     *
-     * @return string
-     */
-    public function getPlace()
-    {
-        return $this->place;
     }
 
     /**
@@ -196,29 +174,25 @@ class Banner extends Image
     }
 
     /**
-     * {@inheritdoc}
+     * Set place
+     *
+     * @param \Fullpipe\BannerBundle\Entity\Place $place
+     * @return Banner
      */
-    public function hasFile()
+    public function setPlace(\Fullpipe\BannerBundle\Entity\Place $place = null)
     {
-        return null !== $this->file;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getFile()
-    {
-        return $this->file;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setFile(UploadedFile $file = null)
-    {
-        $this->file = $file;
+        $this->place = $place;
 
         return $this;
     }
 
+    /**
+     * Get place
+     *
+     * @return \Fullpipe\BannerBundle\Entity\Place
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
 }

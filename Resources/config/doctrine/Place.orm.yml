@@ -1,0 +1,31 @@
+Fullpipe\BannerBundle\Entity\Place:
+    type: entity
+    table: fp_banner_place
+    repositoryClass: Fullpipe\BannerBundle\Entity\PlaceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        place_name:
+            type: string
+            length: 255
+            unique: true
+        html:
+            type: text
+            nullable: true
+    oneToMany:
+        banners:
+            targetEntity: Fullpipe\BannerBundle\Entity\Banner
+            mappedBy: place
+            cascade: [all]
+    indexes:
+        place_name_index:
+            columns: [ place_name ]
+    lifecycleCallbacks: {  }
