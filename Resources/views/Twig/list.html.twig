@@ -2,7 +2,7 @@
     {% for banner in banners %}
         <li>
             <a href="{{ banner.url }}">
-                <img src="{{ banner.path|imagine_filter(place) }}" alt="{{ banner.name }}" />
+                <img src="{{ banner|web_path }}" alt="{{ banner.name }}" />
             </a>
         </li>
     {% endfor %}

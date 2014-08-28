@@ -2,14 +2,14 @@
 
 namespace Fullpipe\BannerBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
+use Fullpipe\ImageBundle\Form\Type\ImageType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Banner type.
  */
-class BannerType extends AbstractType
+class BannerType extends ImageType
 {
     /**
      * {@inheritdoc}

@@ -7,21 +7,6 @@ parameters:
     fullpipe_banner.data_root: %liip_imagine.data_root%
 
 services:
-    fullpipe_banner.image_uploader:
-        class: %fullpipe_banner.image_uploader.class%
-        public: false
-        arguments:
-            - @filesystem
-            - %fullpipe_banner.data_root%
-
-    fullpipe_banner.listener.image_upload:
-        class: %fullpipe_banner.listener.image_upload.class%
-        public: false
-        arguments:
-            - @fullpipe_banner.image_uploader
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-
     fullpipe_banner.repository.banner:
         class: %fullpipe_banner.repository.banner.class%
         factory_service: doctrine.orm.entity_manager

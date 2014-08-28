@@ -11,7 +11,3 @@ Fullpipe\BannerBundle\Entity\Banner:
                 message: fullpipe.banner.url.not_blank
             - Url:
                 message: fullpipe.banner.url.not_blank
-        file:
-            - File:
-                maxSize: 2M
-                mimeTypes: ["image/jpeg", "image/png"]

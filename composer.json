@@ -12,8 +12,8 @@
         }
     ],
     "require":      {
-        "symfony/framework-bundle": "~2.0",
-        "liip/imagine-bundle":      "~0.9"
+        "symfony/framework-bundle"  : "~2.0",
+        "fullpipe/image-bundle"     : "dev-master"
     },
     "autoload":     {
         "psr-0": { "Fullpipe\\BannerBundle": "" }

@@ -2,18 +2,13 @@
 
 namespace Fullpipe\BannerBundle\Entity;
 
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Fullpipe\ImageBundle\Entity\Image;
 
 /**
  * Banner
  */
-class Banner implements ImageInterface
+class Banner extends Image
 {
-    /**
-     * @var integer
-     */
-    private $id;
-
     /**
      * @var string
      */
@@ -28,16 +23,6 @@ class Banner implements ImageInterface
      * @var string
      */
     private $url;
-
-    /**
-     * @var string
-     */
-    private $path;
-
-    /**
-     * @var \SplFileInfo
-     */
-    private $file;
 
     /**
      * @var string
@@ -64,10 +49,13 @@ class Banner implements ImageInterface
         return $this->id;
     }
 
+    /**
+     * Contructor
+     */
     public function __construct()
     {
-        // $this->startsAt = new \DateTime('+ 1 day');
-        // $this->endsAt = new \DateTime('+ 1 month');
+        $this->startsAt = new \DateTime();
+        $this->endsAt = new \DateTime('+ 1 month');
     }
 
     /**
@@ -136,34 +124,6 @@ class Banner implements ImageInterface
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * Set path
-     *
-     * @param string $path
-     * @return Banner
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
-        return $this;
-    }
-
-    /**
-     * Get path
-     *
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    public function hasPath()
-    {
-        return null !== $this->path;
     }
 
     /**

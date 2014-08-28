@@ -1,13 +1,7 @@
 Fullpipe\BannerBundle\Entity\Banner:
     type: entity
-    table: null
+    table: fp_banner
     repositoryClass: Fullpipe\BannerBundle\Entity\BannerRepository
-    id:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
     fields:
         name:
             type: string
@@ -17,9 +11,6 @@ Fullpipe\BannerBundle\Entity\Banner:
             length: 255
         url:
             type: text
-        path:
-            type: string
-            length: 255
         html:
             type: text
             nullable: true
