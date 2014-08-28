@@ -2,9 +2,9 @@ parameters:
     fullpipe_banner.listener.image_upload.class: Fullpipe\BannerBundle\EventListener\ImageUploadListener
     fullpipe_banner.image_uploader.class: Fullpipe\BannerBundle\Uploader\ImageUploader
     fullpipe_banner.form.type.banner.class: Fullpipe\BannerBundle\Form\Type\BannerType
+    fullpipe_banner.form.type.place.class: Fullpipe\BannerBundle\Form\Type\PlaceType
     fullpipe_banner.twig.banner.class: Fullpipe\BannerBundle\Twig\BannerExtension
     fullpipe_banner.repository.banner.class: Fullpipe\BannerBundle\Entity\BannerRepository
-    fullpipe_banner.data_root: %liip_imagine.data_root%
 
 services:
     fullpipe_banner.repository.banner:
@@ -17,7 +17,12 @@ services:
     fullpipe_banner.form.type.banner:
         class: %fullpipe_banner.form.type.banner.class%
         tags:
-            - { name: form.type, alias: fullpipe_banner_banner }
+            - { name: form.type, alias: fullpipe_bannerbundle_banner }
+
+    fullpipe_banner.form.type.place:
+        class: %fullpipe_banner.form.type.place.class%
+        tags:
+            - { name: form.type, alias: fullpipe_bannerbundle_place }
 
     fullpipe_banner.twig.banner:
         class: %fullpipe_banner.twig.banner.class%

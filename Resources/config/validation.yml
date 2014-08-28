@@ -11,3 +11,14 @@ Fullpipe\BannerBundle\Entity\Banner:
                 message: fullpipe.banner.url.not_blank
             - Url:
                 message: fullpipe.banner.url.not_blank
+
+Fullpipe\BannerBundle\Entity\Place:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: place_name
+    properties:
+        name:
+            - NotBlank:
+                message: fullpipe.banner.name.not_blank
+        place_name:
+            - NotBlank:
+                message: fullpipe.banner.place_name.not_blank
