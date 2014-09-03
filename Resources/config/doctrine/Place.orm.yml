@@ -25,6 +25,7 @@ Fullpipe\BannerBundle\Entity\Place:
             targetEntity: Fullpipe\BannerBundle\Entity\Banner
             mappedBy: place
             cascade: [all]
+            orderBy: { 'position': ASC }
     indexes:
         place_name_index:
             columns: [ place_name ]

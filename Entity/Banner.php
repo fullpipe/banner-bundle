@@ -40,6 +40,11 @@ class Banner extends Image
     private $place;
 
     /**
+     * @var integer
+     */
+    private $position;
+
+    /**
      * Get id
      *
      * @return integer
@@ -54,6 +59,7 @@ class Banner extends Image
      */
     public function __construct()
     {
+        $this->position = 0;
         $this->startsAt = new \DateTime();
         $this->endsAt = new \DateTime('+ 1 month');
     }
@@ -194,5 +200,29 @@ class Banner extends Image
     public function getPlace()
     {
         return $this->place;
+    }
+
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Banner
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

@@ -29,6 +29,7 @@ class BannerRepository extends EntityRepository
             ->andWhere('banner.startsAt < :now')
             ->andWhere('banner.endsAt > :now')
             ->setParameter('now', new \DateTime())
+            ->orderBy('banner.position', 'ASC')
             ;
 
         return $qb;

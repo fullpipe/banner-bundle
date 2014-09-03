@@ -1,0 +1,5 @@
+{% if place is not null %}
+    <div class="fullpipe-banner-place {% if attr.class is defined %}{{ attr.class }}{% endif %}">
+        {{ place.html|raw }}
+    </div>
+{% endif %}

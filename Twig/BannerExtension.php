@@ -21,6 +21,7 @@ class BannerExtension extends \Twig_Extension
         return array(
             new \Twig_SimpleFunction('banners_in_place', array($this, 'getBannersInPlace')),
             new \Twig_SimpleFunction('banner_list', array($this, 'renderList'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('banner_place', array($this, 'renderBannerPlace'), array('is_safe' => array('html'))),
         );
     }
 
@@ -46,12 +47,35 @@ class BannerExtension extends \Twig_Extension
     }
 
     /**
+     * Render Banner place html
+     * @param  string $placeName
+     * @param  array  $attr
+     */
+    public function renderBannerPlace($placeName, array $attr = array())
+    {
+        return $this->getTemplating()->render('FullpipeBannerBundle:Twig:place.html.twig', array(
+            'place'   => $this->getBannerPlace($placeName),
+            'attr'    => $attr
+        ));
+    }
+
+    public function getBannerPlace($placeName)
+    {
+        return $this->getPlaceRepository()->findOneBy(array('place_name' => $placeName));
+    }
+
+    /**
      * Get Banner repository
      * @return Fullpipe\BannerBundle\Entity\BannerRepository [description]
      */
     public function getRepository()
     {
         return $this->container->get('fullpipe_banner.repository.banner');
+    }
+
+    public function getPlaceRepository()
+    {
+        return $this->container->get('fullpipe_banner.repository.place');
     }
 
     /**
