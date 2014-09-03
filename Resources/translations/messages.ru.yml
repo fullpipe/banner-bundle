@@ -7,6 +7,7 @@ fullpipe_banner:
             html: HTML контент
             startsAt: Дата начала показа
             endsAt: Дата окончания показа
+            position: Позиция
         place:
             name: Название
             place_name: Название в шаблонах

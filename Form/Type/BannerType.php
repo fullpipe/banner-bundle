@@ -29,6 +29,9 @@ class BannerType extends ImageType
             ->add('url', null, array(
                 'label' => 'fullpipe_banner.form.banner.url'
             ))
+            ->add('position', null, array(
+                'label' => 'fullpipe_banner.form.banner.position'
+            ))
             ->add('html', null, array(
                 'label' => 'fullpipe_banner.form.banner.html'
             ))
