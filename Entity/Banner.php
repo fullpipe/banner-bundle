@@ -179,6 +179,27 @@ class Banner extends Image
         return $this->endsAt;
     }
 
+    public function daysLeft()
+    {
+        $r = 0;
+
+        if ($this->isPublic()) {
+            $left = $this->getEndsAt()->diff(new \DateTime());
+            $r = $left->days;
+        }
+
+        return $r;
+    }
+
+    /**
+     * Is public
+     * @return boolean
+     */
+    public function isPublic()
+    {
+        return $this->getEndsAt() > new \DateTime();
+    }
+
     /**
      * Set place
      *

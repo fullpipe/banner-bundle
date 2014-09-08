@@ -9,6 +9,8 @@
             <th></th>
             <th>{{ sylius_resource_sort('name') }}</th>
             <th>{{ sylius_resource_sort('place') }}</th>
+            <th>{{ sylius_resource_sort('public') }}</th>
+            <th>{{ sylius_resource_sort('endsAt') }}</th>
             <th></th>
         </tr>
     </thead>
@@ -23,6 +25,17 @@
             </td>
             <td>
                 {{ banner.place.name }}
+            </td>
+            <td>
+                {% if banner.public %}
+                    <span class="glyphicon glyphicon-ok"></span>
+                {% endif %}
+            </td>
+            <td>
+                {{ banner.endsAt|date("d.m.Y") }}
+                {% if banner.public %}
+                    <br><small>{{ banner.daysLeft }} days left</small>
+                {% endif %}
             </td>
             <td>
                 <div class="pull-right">
