@@ -21,6 +21,7 @@ class BannerExtension extends \Twig_Extension
         return array(
             new \Twig_SimpleFunction('banners_in_place', array($this, 'getBannersInPlace')),
             new \Twig_SimpleFunction('banner_list', array($this, 'renderList'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('banner_list_html', array($this, 'renderListHtml'), array('is_safe' => array('html'))),
             new \Twig_SimpleFunction('banner_place', array($this, 'renderBannerPlace'), array('is_safe' => array('html'))),
         );
     }
@@ -40,6 +41,21 @@ class BannerExtension extends \Twig_Extension
     public function renderList($placeName, $limit = null, array $attr = array())
     {
         return $this->getTemplating()->render('FullpipeBannerBundle:Twig:list.html.twig', array(
+            'banners' => $this->getBannersInPlace($placeName, $limit),
+            'place'   => $placeName,
+            'attr'    => $attr
+        ));
+    }
+
+    /**
+     * Render Banners in list
+     * @param  string $placeName
+     * @param  integer $limit
+     * @param  array  $attr
+     */
+    public function renderListHtml($placeName, $limit = null, array $attr = array())
+    {
+        return $this->getTemplating()->render('FullpipeBannerBundle:Twig:listHtml.html.twig', array(
             'banners' => $this->getBannersInPlace($placeName, $limit),
             'place'   => $placeName,
             'attr'    => $attr

@@ -59,6 +59,7 @@ class Banner extends Image
      */
     public function __construct()
     {
+        $this->path = 'html';
         $this->position = 0;
         $this->startsAt = new \DateTime();
         $this->endsAt = new \DateTime('+ 1 month');
@@ -245,5 +246,10 @@ class Banner extends Image
     public function getPosition()
     {
         return $this->position;
+    }
+
+    public function isNew()
+    {
+        return false;
     }
 }

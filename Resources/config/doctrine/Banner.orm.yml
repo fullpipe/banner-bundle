@@ -8,6 +8,7 @@ Fullpipe\BannerBundle\Entity\Banner:
             length: 255
         url:
             type: text
+            nullable: true
         html:
             type: text
             nullable: true

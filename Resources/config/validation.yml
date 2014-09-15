@@ -7,8 +7,6 @@ Fullpipe\BannerBundle\Entity\Banner:
             - NotBlank:
                 message: fullpipe.banner.name.not_blank
         url:
-            - NotBlank:
-                message: fullpipe.banner.url.not_blank
             - Url:
                 message: fullpipe.banner.url.not_blank
 

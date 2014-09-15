@@ -1,0 +1,24 @@
+<ul class="fullpipe-banner-list-html {% if attr.class is defined %}{{ attr.class }}{% endif %}">
+    {% for banner in banners if banner.html is not empty %}
+        <li>
+            {{ banner.html|raw}}
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
