@@ -1,3 +1,5 @@
+{% if banners|length > 0 %}
+{% spaceless %}
 <ul class="fullpipe-banner-list {% if attr.class is defined %}{{ attr.class }}{% endif %}">
     {% for banner in banners %}
         <li>
@@ -7,3 +9,5 @@
         </li>
     {% endfor %}
 </ul>
+{% endspaceless %}
+{% endif %}
