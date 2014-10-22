@@ -3,9 +3,18 @@
 <ul class="fullpipe-banner-list {% if attr.class is defined %}{{ attr.class }}{% endif %}">
     {% for banner in banners %}
         <li>
-            <a href="{{ banner.url }}">
-                <img src="{{ banner|web_path }}" alt="{{ banner.name }}" />
-            </a>
+            {% if banner.url is not empty and banner.path is not empty %}
+                <div class="fullpipe-banner-image">
+                    <a href="{{ banner.url }}">
+                        <img src="{{ banner|web_path }}" alt="{{ banner.name }}" />
+                    </a>
+                </div>
+            {% endif %}
+            {% if banner.html is not empty %}
+                <div class="fullpipe-banner-html">
+                    {{ banner.html|raw}}
+                </div>
+            {% endif %}
         </li>
     {% endfor %}
 </ul>

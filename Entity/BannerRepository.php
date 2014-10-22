@@ -11,6 +11,11 @@ class BannerRepository extends EntityRepository
 {
     public function findActiveInPlace($placeName)
     {
+        return $this->getActiveInPlaceQueryBuilder($placeName)->getQuery()->getResult();
+    }
+
+    public function getActiveInPlaceQueryBuilder($placeName)
+    {
         $qb = $this->getActiveQueryBuilder();
 
         $qb
@@ -19,7 +24,7 @@ class BannerRepository extends EntityRepository
             ->setParameter('place_name', $placeName)
             ;
 
-        return $qb->getQuery()->getResult();
+        return $qb;
     }
 
     public function getActiveQueryBuilder()
